@@ -1,0 +1,33 @@
+<h2>{{ title }}</h2>
+
+<table class="drivers-table">
+    <thead>
+        <tr>
+            <th></th>
+            <th colspan="2">Driver</th>
+            <th>Constructor</th>
+            <th>Nationality</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (driver of driverItems(); let i = $index; track driver.driver_number) {
+        <tr [style.backgroundColor]="'#'+driver.team_colour">
+            <td>{{ i + 1 }}</td>
+            <td class="image-col">
+                @if (driver.driver_number == 40) {
+                <img
+                    src="https://www.formula1.com/content/dam/fom-website/drivers/L/LIALAW01_Liam_Lawson/lialaw01.png.transform/1col/image.png"
+                    [alt]="driver.full_name" />
+                }
+                @else {
+                <img [src]="driver.headshot_url" [alt]="driver.full_name" />
+                }</td>
+            <td>
+                {{ driver.full_name }}
+            </td>
+            <td>{{ driver.team_name }}</td>
+            <td>{{ driver.country_code }}</td>
+        </tr>
+        }
+    </tbody>
+</table>
