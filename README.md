@@ -26,15 +26,15 @@ The purpose of this project is to apply what I've been learning about Angular de
 1. Ensure Node.js is installed.
 2. Clone the repository:
    ```console
-   > git clone
+   > git clone https://github.com/RafaelGoodman/f1-dashboard-angular.git
    > cd f1-dashboard-angular
    ```
 4. Install dependencies:
-```console
-> npm install
-```
+   ```console
+   > npm install
+   ```
 4. Run the development server:
-```console
-> ng serve
-```
-5. Open your browser at ```http://localhost:4200```
+   ```console
+   > ng serve
+   ```
+5. Open your browser at: ```http://localhost:4200```
