@@ -1,10 +1,11 @@
 header {
   position: sticky;
   top: 0;
+  z-index: 1;
   display: flex;
   padding-inline: 16px;
   padding-block: 8px;
-  background-color: #15151e;
+  background: linear-gradient(6deg, #15151e 0%, #28283a 55%, #424261 85%);
   color: white;
   align-items: center;
   justify-content: space-between;
@@ -16,7 +17,7 @@ nav {
   justify-content: space-between;
   align-items: center;
 
-  > span {
+  .f1-dashboard {
     display: flex;
     align-items: center;
     gap: 2px;
@@ -44,7 +45,8 @@ nav {
       border-radius: 6px;
       background-color: #FF1E00;
       &:hover {
-        background-color: #af1400;
+        filter:brightness(85%);
+        transform: scale(1.05);
       }
     }
   }

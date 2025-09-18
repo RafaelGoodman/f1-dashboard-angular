@@ -1,10 +1,12 @@
 <header>
     <nav>
-        <span routerLink="/"><img src="f1logo.png" alt="F1Logo" width="100"/> {{ title() }}</span>
-        <ul>
-            <li routerLink="/drivers">STANDINGS</li>
-            <li routerLink="/drivers">RESULTS</li>
-            <li routerLink="/drivers">SCHEDULE</li>
-        </ul>
+        <span class="f1-dashboard" routerLink="/"><img src="f1logo.png"
+                alt="F1Logo" width="100" /> {{ title() }}</span>
+        <div class="buttons-right">
+            <ul>
+                <li routerLink="/standings">STANDINGS</li>
+                <li routerLink="/results">RESULTS</li>
+            </ul>
+        </div>
     </nav>
 </header>

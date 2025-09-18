@@ -38,3 +38,5 @@ The purpose of this project is to apply what I've been learning about Angular de
    > ng serve
    ```
 5. Open your browser at: ```http://localhost:4200```
+
+**NOTE**: In order to not exceed the API request limit, I have artificially delayed the loading of certain components. Please be patient while waiting for pages to load 🙂.

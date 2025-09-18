@@ -5,16 +5,12 @@
   width: 100%;
   min-width: 400px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  border-radius: 10%;
+  box-shadow: 1px 1px 4px 1px  rgb(0, 0, 0);
 
   thead tr {
     background-color: #15151e;
     color: #ffffff;
     text-align: left;
-  }
-
-  tr:hover {
-    filter: brightness(85%);
   }
 
   th,
@@ -38,12 +34,23 @@
     &:hover {
       cursor: pointer;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+      filter: brightness(120%);
+      transform: scale(1.05);
     }
+  }
+
+  tbody {
+    margin-top: 30px;
   }
 
   tbody tr {
     border-bottom: 1px solid #dddddd;
     background-color: var(drive);
+    filter: brightness(95%);
+    &:hover {
+        filter: brightness(100%);
+        transform: scale(1.01);
+    }
   }
 
   tbody tr:nth-child(even) {
@@ -51,6 +58,6 @@
   }
 
   tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
+    border-bottom: 2px solid #15151e;
   }
 }

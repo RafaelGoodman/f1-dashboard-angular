@@ -1,12 +1,10 @@
-<h2>{{ title }}</h2>
-
 <table class="drivers-table">
     <thead>
         <tr>
             <th></th>
-            <th colspan="2">Driver</th>
-            <th>Constructor</th>
-            <th>Nationality</th>
+            <th colspan="2">DRIVER</th>
+            <th>TEAM</th>
+            <th>NATIONALITY</th>
         </tr>
     </thead>
     <tbody>
@@ -18,6 +16,16 @@
                 <img
                     src="https://www.formula1.com/content/dam/fom-website/drivers/L/LIALAW01_Liam_Lawson/lialaw01.png.transform/1col/image.png"
                     [alt]="driver.full_name" />
+                }
+                @else if (driver.driver_number == 3) {
+                <img
+                src="https://www.formula1.com/content/dam/fom-website/drivers/D/DANRIC01_Daniel_Ricciardo/danric01.png.transform/1col/image.png"
+                [alt]="driver.full_name" />
+                }
+                @else if (driver.driver_number == 43) {
+                <img
+                src="https://www.formula1.com/content/dam/fom-website/drivers/F/FRACOL01_Franco_Colapinto/fracol01.png.transform/1col/image.png"
+                [alt]="driver.full_name" />
                 }
                 @else {
                 <img [src]="driver.headshot_url" [alt]="driver.full_name" />
