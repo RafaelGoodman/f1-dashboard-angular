@@ -1,1 +1,13 @@
-<p>results-page works!</p>
+<nav>
+    <h2>{{ title }}</h2>
+    <div class="dropdown">
+        <button class="dropbtn">Select Season ▼</button>
+        <div class="dropdown-content">
+            @for (year of meetingItems(); track year) {
+                <a (click)="onYearSelect(year)">{{ year }}</a>
+            }
+        </div>
+    </div>
+</nav>
+
+<app-results-table [season]="selectedYear"></app-results-table>

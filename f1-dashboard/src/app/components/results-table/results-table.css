@@ -1,15 +1,22 @@
-.drivers-table {
+.results-table {
   border-collapse: collapse;
   margin: 25px 0;
   font-size: 0.9em;
   width: 100%;
   min-width: 400px;
-  box-shadow: 1px 1px 4px 1px  rgb(0, 0, 0);
+  box-shadow: 1px 1px 4px 1px rgb(0, 0, 0);
 
   thead tr {
     background-color: #15151e;
     color: #ffffff;
-    text-align: left;
+    text-align: center;
+  }
+
+  thead th {
+    &:hover {
+      cursor: pointer;
+      filter: brightness(80%);
+    }
   }
 
   th,
@@ -46,15 +53,19 @@
     border-bottom: 1px solid #dddddd;
     background-color: var(drive);
     filter: brightness(95%);
+    text-align: center;
     &:hover {
-        filter: brightness(100%);
-        transform: scale(1.01);
-        box-shadow: 1px 1px 2px rgb(0, 0, 0);
+      cursor: default;
+      filter: brightness(100%);
+      transform: scale(1.01);
+      box-shadow: 1px 1px 2px rgb(0, 0, 0);
     }
   }
 
-  tbody tr:nth-child(even) {
-    background-color: #f3f3f3;
+  .position-cell p{
+    &:hover {
+      transform: scale(1.2);
+    }
   }
 
   tbody tr:last-of-type {

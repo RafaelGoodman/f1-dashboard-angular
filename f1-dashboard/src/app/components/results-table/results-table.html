@@ -1,0 +1,106 @@
+<table class="results-table">
+    <thead>
+        <tr>
+            <th></th>
+            <th colspan="2" (click)="sortCol('full_name')">
+                DRIVER
+                @if(sortColumn === 'full_name') {
+                <span>
+                    {{ sortDirection === 'asc' ? '▲' : '▼' }}
+                </span>
+                }
+            </th>
+            <th (click)="sortCol('team_name')">
+                TEAM
+                @if(sortColumn === 'team_name') {
+                <span>
+                    {{ sortDirection === 'asc' ? '▲' : '▼' }}
+                </span>
+                }
+            </th>
+            <th (click)="sortCol('points')">
+                POINTS
+                @if(sortColumn === 'points') {
+                <span>
+                    {{ sortDirection === 'asc' ? '▲' : '▼' }}
+                </span>
+                }
+            </th>
+            @for (session of sessionItems(); track session.session_key) {
+            <th (click) = "sortSessionCol(session.session_key)">
+                {{ session.country_code }}
+                @if(sortSessionKey === session.session_key) {
+                <span>
+                    {{ sortDirection === 'asc' ? '▲' : '▼' }}
+                </span>
+                }
+            </th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @for (driver of driverItems(); let i = $index; track
+        driver.driver_number) {
+        <tr [style.backgroundColor]="'#'+driver.team_colour">
+            <td>{{ i + 1 }}</td>
+            <td class="image-col">
+                @if (driver.driver_number == 40) {
+                <img
+                    src="https://www.formula1.com/content/dam/fom-website/drivers/L/LIALAW01_Liam_Lawson/lialaw01.png.transform/1col/image.png"
+                    [alt]="driver.full_name" />
+                }
+                @else if (driver.driver_number == 3) {
+                <img
+                    src="https://www.formula1.com/content/dam/fom-website/drivers/D/DANRIC01_Daniel_Ricciardo/danric01.png.transform/1col/image.png"
+                    [alt]="driver.full_name" />
+                }
+                @else if (driver.driver_number == 43) {
+                <img
+                    src="https://www.formula1.com/content/dam/fom-website/drivers/F/FRACOL01_Franco_Colapinto/fracol01.png.transform/1col/image.png"
+                    [alt]="driver.full_name" />
+                }
+                @else {
+                <img [src]="driver.headshot_url" [alt]="driver.full_name" />
+                }</td>
+            <td>
+                {{ driver.full_name }} [{{ driver.driver_number }}]
+            </td>
+            <td>{{ driver.team_name }}</td>
+            <td style="font-weight: bold;">{{ getTotalPoints(driver.driver_number) }}</td>
+            @for (session of sessionItems(); track session.session_key) {
+            <td class="position-cell">
+
+                @let result = getDriverResult(driver.driver_number,
+                session.session_key);
+                @if (result?.dnf) {
+                <p style="color: red; font-weight: bold;" [title]="'DNF'">X</p>
+                } @else if (result?.dns) {
+                <p style="font-weight: bold;" [title]="'DNS'">~</p>
+                } @else if (result?.dsq) {
+                <p style="color: red; font-weight: bold;"
+                    [title]="'Disqualified'">!</p>
+                } @else if (result?.position === 1) {
+                <p [title]="result?.points + ' points'">🥇</p>
+                } @else if (result?.position === 2) {
+                <p [title]="result?.points + ' points'">🥈</p>
+                } @else if (result?.position === 3) {
+                <p [title]="result?.points + ' points'">🥉</p>
+                } @else if (result?.position === null) {
+                <p [title]="'N/A'">-</p>
+                } @else {
+                <span class="position" [title]="result?.points + ' points'">
+                    <p>{{ result?.position ?? '-' }}</p>
+                </span>
+                }
+
+                <!-- {{ getDriverResult(driver.driver_number, session.session_key)?.position ?? '-' }} -->
+            </td>
+            }
+        </tr>
+        }
+    </tbody>
+</table>
+
+<p>Sessions loaded: {{ sessionItems().length }}</p>
+<p>Results loaded: {{ sessionResults().length }}</p>
+<p>First result: {{ sessionResults()[0] | json }}</p>

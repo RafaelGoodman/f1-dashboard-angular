@@ -43,10 +43,13 @@ nav {
       cursor: pointer;
       padding: 0.4rem 0.8rem;
       border-radius: 6px;
-      background-color: #FF1E00;
+      background-color: #ff1e00;
+      box-shadow: 1px 1px 2px rgb(0, 0, 0);
+
       &:hover {
-        filter:brightness(85%);
+        filter: brightness(85%);
         transform: scale(1.05);
+        box-shadow: 2px 2px 2px rgb(0, 0, 0);
       }
     }
   }

@@ -40,3 +40,5 @@ The purpose of this project is to apply what I've been learning about Angular de
 5. Open your browser at: ```http://localhost:4200```
 
 **NOTE**: In order to not exceed the API request limit, I have artificially delayed the loading of certain components. Please be patient while waiting for pages to load 🙂.
+
+**NOTE**: During active F1 sessions, OpenF1 API access is restricted, so the site won't function as intended.
